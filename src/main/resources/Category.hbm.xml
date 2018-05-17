@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 17, 2018 6:35:23 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.appFive.model.Category" table="CATEGORY">
+        <id name="id" type="long">
+            <column name="CATEGORY_ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        
+        
+        <set name="products" table="PRODUCT" inverse="true" lazy="true" fetch="join" cascade="all">
+            <key>
+                <column name="CATEGORY_ID" not-null="true" />
+            </key>
+            <one-to-many class="com.appFive.model.Product" />
+        </set>
+    </class>
+</hibernate-mapping>
