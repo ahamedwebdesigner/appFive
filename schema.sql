@@ -15,7 +15,7 @@ describe Employee;
 select * from Employee;
 truncate Employee;
 
-
+show tables;
 
 CREATE TABLE `Staff` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -38,5 +38,18 @@ CREATE TABLE `category` (
 select * from category;
 truncate category;
 
+CREATE TABLE `product` (
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `description` varchar(512) NOT NULL,
+  `price` float NOT NULL,
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`product_id`),
+  KEY `fk_category` (`category_id`),
+  CONSTRAINT `fk_category` FOREIGN KEY (`category_id`) 
+              REFERENCES `category` (`category_id`)
+);
 
+select * from product;
+truncate product;
 

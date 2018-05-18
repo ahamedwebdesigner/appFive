@@ -1,5 +1,15 @@
 package com.appFive.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "PRODUCT")
 public class Product {
 	private long id;
 	private String name;
@@ -23,7 +33,9 @@ public class Product {
 
 
 	
-	
+    @Id
+    @Column(name = "PRODUCT_ID")
+    @GeneratedValue
 	public long getId() {
 		return id;
 	}
@@ -54,6 +66,9 @@ public class Product {
 	public void setPrice(float price) {
 		this.price = price;
 	}
+	
+	@ManyToOne
+    @JoinColumn(name = "CATEGORY_ID")
 	public Category getCategory() {
 		return category;
 	}
