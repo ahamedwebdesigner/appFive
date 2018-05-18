@@ -29,11 +29,15 @@ select * from Staff;
 
 
 
+
+
 CREATE TABLE `category` (
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`category_id`)
 );
+
+
 
 select * from category;
 truncate category;

@@ -19,5 +19,8 @@
             </key>
             <one-to-many class="com.appFive.model.Product" />
         </set>
+        
+        
+        
     </class>
 </hibernate-mapping>

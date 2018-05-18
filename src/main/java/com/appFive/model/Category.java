@@ -42,6 +42,7 @@ public class Category {
 		this.name = name;
 	}
 
+	
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	public Set<Product> getProducts() {
 		return products;
@@ -50,6 +51,8 @@ public class Category {
 	public void setProducts(Set<Product> products) {
 		this.products = products;
 	}
+
+
 
 
 }

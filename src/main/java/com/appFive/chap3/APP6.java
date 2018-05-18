@@ -14,16 +14,17 @@ public class APP6 {
 		
 		
 		Configuration configuration = new Configuration();
-	/*	
+	
 	  // 1) adding maping information to the config file
+/*
 	  configuration.configure("hibernate.cfg.xml");
 		configuration.addAnnotatedClass(Category.class);
 		configuration.addAnnotatedClass(Product.class);
-		*/
+	*/	
 		
 		//2) second one adding maping information with in the config file
 		configuration.configure("hibernate-annotation.cfg.xml");
-		
+	
 		
 		SessionFactory sessionFactory = configuration
 				.buildSessionFactory(new StandardServiceRegistryBuilder(
@@ -31,11 +32,11 @@ public class APP6 {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		Category category = new Category("car");
-		Product pc = new Product("bladeRunner", "blade", 12000, category);
+		Category category = new Category("Tv");
+		Product pc = new Product("redm5", "vg good tv", 55555, category);
 		
 		
-		session.save(category);
+		//session.save(category);
 		session.save(pc);
 		
 		
