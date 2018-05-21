@@ -36,16 +36,16 @@ public class App5 {
 		
 		
 		// In order to work bi directional query just rid off to string methods in category class
-		 List ProductList = session.createQuery("FROM Product").list();
+/* */    List ProductList = session.createQuery("FROM Product").list();
 		 System.out.println(ProductList.get(0));
 		 System.out.println(ProductList.get(1));
 		 System.out.println(ProductList.get(2));
 		 System.out.println(ProductList.get(3));
 		 System.out.println(ProductList.get(4));
 		
-/*		List CategorytList = session.createQuery("FROM Category").list();
-		 System.out.println(CategorytList.get(1));
-		 */
+/**/	List CategorytList = session.createQuery("FROM Category").list();
+		 System.out.println(CategorytList.get(1));  
+		
 		session.getTransaction().commit();
 		session.close();
 		

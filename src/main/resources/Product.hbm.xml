@@ -19,7 +19,7 @@
         </property>
         
         
-        <many-to-one name="category" class="com.appFive.model.Category" fetch="join" lazy="false" >
+        <many-to-one name="category" class="com.appFive.model.Category" fetch="join" lazy="true" >
             <column name="CATEGORY_ID" />
         </many-to-one>
     </class>

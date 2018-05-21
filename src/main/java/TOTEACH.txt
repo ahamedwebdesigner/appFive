@@ -1,0 +1,6 @@
+APP5: simple chainge fetch="join" -> select
+	join -> fetching data ysing joine
+	select -> 1st select product and then loops and get the categories
+	
+	
+create new Branch and shift to that perticular b

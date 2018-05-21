@@ -13,7 +13,18 @@
         </property>
         
         
-        <set name="products" table="PRODUCT" inverse="true" lazy="true" fetch="join" cascade="all">
+        <!--  
+           lazy="true" 
+        	  - only one select query and fetches all the category data wraper class is created for products
+        	  
+            inverse="true" 
+            lazy="true" 
+            fetch="join" 
+            cascade="all"
+        
+        -->
+        
+        <set name="products" table="PRODUCT"  fetch="join" lazy="true" inverse="false">
             <key>
                 <column name="CATEGORY_ID" not-null="true" />
             </key>
