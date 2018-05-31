@@ -1,0 +1,15 @@
+1) One to one Maping
+	- create table required  
+		1) employee
+		2) EMPLOYEEDETAIL table
+	- Hibernate Maven dependency
+	- create Model class
+			Employee - add properties and methods getters and setters
+			EmployeeDetail  - add properties and methods getters and setters
+	- Hibernate Configuration 
+		create hibernate config file in config folder of module
+		add mysql connection information
+	
+	- carete xml maping files to the two entity classes and just add to hibernate config file
+	
+	

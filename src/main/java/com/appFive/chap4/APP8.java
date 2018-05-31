@@ -8,6 +8,10 @@ import org.hibernate.cfg.Configuration;
 
 import com.appFive.model.Product;
 
+/*
+ * - working with HSQL query
+ * 
+ */
 public class APP8 {
 
 	public static void main(String[] args) {
