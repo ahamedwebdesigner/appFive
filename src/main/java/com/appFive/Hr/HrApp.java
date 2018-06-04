@@ -24,17 +24,13 @@ public class HrApp {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory("com/appFive/Hr/config/HR_Hibernate.cfg.xml");
 		Session session = sessionFactory.openSession();
 		
-		
-
-		
-
 		 Transaction tx = null;
 		 try {
 		     tx = session.beginTransaction();
 		     //do some work
-		 	EmployeeDetail employeeDetail = new EmployeeDetail("11 cross", "LA", "San Francisco", "U.S.");
+		 	EmployeeDetail employeeDetail = new EmployeeDetail("13 cross", "LA", "new Francisco", "U.S.");
 			
-			Employee employee = new Employee("tiger", "john", new  java.sql.Date(121212),"114-857-965");
+			Employee employee = new Employee("blis", "one", new  java.sql.Date(121212),"114-857-965");
 			
 			Date now = new Date();
 			employee.setInsertDate(now);

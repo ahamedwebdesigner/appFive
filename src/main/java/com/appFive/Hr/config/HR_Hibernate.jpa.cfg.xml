@@ -26,10 +26,9 @@
     
     <property name="hibernate.connection.format_sql">true</property>
  
-     <mapping resource="com/appFive/Hr/config/Employee.xml"/> 
-     <mapping resource="com/appFive/Hr/config/EmployeeDetail.xml"/> 
 
-  <mapping class="com.appFive.Hr.model.jpa.*"/>
+  <mapping class="com.appFive.Hr.model.jpa.EmployeeJpa"/>
+  <mapping class="com.appFive.Hr.model.jpa.EmployeeDetailJpa"/>
     
        
   </session-factory>

@@ -14,6 +14,8 @@ import org.hibernate.Transaction;
 
 import com.appFive.Hr.model.Employee;
 import com.appFive.Hr.model.EmployeeDetail;
+import com.appFive.Hr.model.jpa.EmployeeDetailJpa;
+import com.appFive.Hr.model.jpa.EmployeeJpa;
 import com.appFive.Hr.util.HibernateUtil;
 
 
@@ -24,17 +26,13 @@ public class HrAppJpa {
 		SessionFactory sessionFactory = HibernateUtil.getSessionFactory("com/appFive/Hr/config/HR_Hibernate.jpa.cfg.xml");
 		Session session = sessionFactory.openSession();
 		
-		
-
-		
-
-		/* Transaction tx = null;
+		Transaction tx = null;
 		 try {
 		     tx = session.beginTransaction();
 		     //do some work
-		 	EmployeeDetail employeeDetail = new EmployeeDetail("10 cross", "LA", "San Francisco", "U.S.");
-			
-			Employee employee = new Employee("scott", "john", new  java.sql.Date(121212),"114-857-965");
+		     EmployeeDetailJpa employeeDetail = new EmployeeDetailJpa("34 cross", "NU", "old Francisco", "U.S.");
+		 			
+		 	EmployeeJpa employee = new EmployeeJpa("scala", "harington", new  java.sql.Date(121298),"114-857-965");
 			
 			Date now = new Date();
 			employee.setInsertDate(now);
@@ -53,11 +51,12 @@ public class HrAppJpa {
 		 catch (Exception e) {
 		     if (tx!=null) tx.rollback();
 		     System.out.println("data is not saved");
+		     e.printStackTrace(System.out);
 		   
 		 }
 		 finally {
 			 session.close();
-		 }*/
+		 }
 	}
 
 }

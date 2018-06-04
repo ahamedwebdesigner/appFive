@@ -102,7 +102,15 @@ public class Employee {
 		this.employeeDetail = employeeDetail;
 	}
 
+	@Override
+	public String toString() {
+		return "Employee [employeeId=" + employeeId + ", firstname=" + firstname + ", lastname=" + lastname
+				+ ", birthDate=" + birthDate + ", cellphone=" + cellphone + ", employeeDetail=" + employeeDetail
+				+ ", insertDate=" + insertDate + ", insertTime=" + insertTime + ", modifiedDateTime=" + modifiedDateTime
+				+ "]";
+	}
+
 	
-	
+
 	
 }
