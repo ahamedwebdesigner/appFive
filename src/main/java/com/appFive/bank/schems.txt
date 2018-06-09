@@ -1,0 +1,4 @@
+Username - BankAdmin
+password - BankAdmin123456
+schema - BankSchem
+

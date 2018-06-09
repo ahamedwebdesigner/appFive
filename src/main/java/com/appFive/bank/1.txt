@@ -1,0 +1,4 @@
+simple maping example
+	1) created HibernateBankUtil.java
+		 - single tone class class returns Hibernate session factory
+	

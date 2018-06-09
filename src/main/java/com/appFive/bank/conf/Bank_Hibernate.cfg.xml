@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+		
+		
+<hibernate-configuration>
+
+
+
+    
+ <session-factory>
+    <!-- Database connection settings -->
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306</property>
+      <property name="hibernate.default_schema">bankschem</property>
+    <property name="connection.username">BankAdmin</property>
+    <property name="connection.password">BankAdmin123456</property>
+    
+   	<!-- Dialect is required to let Hibernate know the Database Type, MySQL, Oracle etc
+		Hibernate 4 automatically figure out Dialect from Database Connection Metadata -->
+			
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    <!-- Outputs the SQL queries, should be disabled in Production -->
+    <property name="show_sql">true</property>
+    
+    <property name="hibernate.connection.format_sql">true</property>
+    <property name="hibernate.id.new_generator_mappings">true</property> 
+    <property name="hibernate.hbm2ddl.auto">update</property> 
+  
+    <mapping class="com.appFive.bank.entities.User" />
+    <mapping class="com.appFive.bank.entities.TimeTest" />
+       
+  </session-factory>
+  
+  
+
+</hibernate-configuration>

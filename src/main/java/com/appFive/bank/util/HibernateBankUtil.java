@@ -1,4 +1,4 @@
-package com.appFive.Hr.util;
+package com.appFive.bank.util;
 
 import java.util.Map;
 
@@ -11,7 +11,7 @@ import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.persister.entity.AbstractEntityPersister;
 import org.hibernate.service.ServiceRegistry;
 
-public class HibernateUtil {
+public class HibernateBankUtil {
 	 private static  SessionFactory sessionFactory = null;
 
 	 
