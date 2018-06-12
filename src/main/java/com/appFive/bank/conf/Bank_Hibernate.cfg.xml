@@ -30,6 +30,7 @@
   
     <mapping class="com.appFive.bank.entities.User" />
     <mapping class="com.appFive.bank.entities.TimeTest" />
+    <mapping class="com.appFive.bank.entities.Bank" />
        
   </session-factory>
   

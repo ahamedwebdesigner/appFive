@@ -18,19 +18,17 @@ import org.hibernate.annotations.Formula;
 public class User {
 
 	
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
-	/*
-	@GeneratedValue (strategy=GenerationType.TABLE, generator="user_table_generator")
-	@TableGenerator(name="user_table_generator",
-					table ="user_keys",
-					pkColumnName="PK_NAME",
-					pkColumnValue="PK_VALUE"
-					)*/
-	//@GeneratedValue(strategy=GenerationType.AUTO)
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	
+	@TableGenerator(name="user_table_generator",
+	table ="user_keys",
+	pkColumnName="PK_NAME", 
+			  valueColumnName = "next_val",
+					  allocationSize=1,
+	pkColumnValue="PK_VALUE"
+	)
+	@GeneratedValue (strategy=GenerationType.TABLE, generator="user_table_generator")
+
 	@Column(name="USER_ID")
 	private Long userId;
 
@@ -61,8 +59,41 @@ public class User {
 	@Column(name="CREATED_BY")
 	private String createdBy;
 
+	@Column(name="SALARY")
+	private String monthalySalary;
 	
-	/*Formula annotations*/
+	
+	
+
+	/*************************Formula annotations***************************/
+	
+	// 1) case conversion
+	
+	@Formula(value = "upper(FIRST_NAME)")
+    private String upperfirstName;
+	public String getUpperfirstName() {
+		return upperfirstName;
+	}
+
+	public void setUpperfirstName(String upperfirstName) {
+		this.upperfirstName = upperfirstName;
+	}
+	
+	// 2) concat
+	@Formula(value = "concat(upper(FIRST_NAME), ' ', upper(LAST_NAME))")
+	private String FullName;
+	
+	public String getFullName() {
+		return FullName;
+	}
+
+	public void setFullName(String fullName) {
+		FullName = fullName;
+	}
+	
+	
+	
+	// 3) calculating age my using date of birth
 	
 	@Formula("lower(datediff(curdate(), birth_date)/365)")
 	private int age;
@@ -75,7 +106,19 @@ public class User {
 		this.age = age;
 	}
 	
-	/*Formula annotations*/
+	/*---------------Formula annotations-----------*/
+	
+	
+	public String getMonthalySalary() {
+		return monthalySalary;
+	}
+
+	public void setMonthalySalary(String monthalySalary) {
+		this.monthalySalary = monthalySalary;
+	}
+
+	
+	
 	public Long getUserId() {
 		return userId;
 	}
