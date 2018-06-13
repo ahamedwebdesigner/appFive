@@ -1,13 +1,19 @@
 package com.appFive.bank.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Basic;
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
@@ -106,9 +112,46 @@ public class User {
 		this.age = age;
 	}
 	
-	/*---------------Formula annotations-----------*/
 	
 	
+	
+	
+	@ElementCollection
+	@CollectionTable(name="USER_ADDRESS", joinColumns=@JoinColumn(name="USER_ID"))
+	@AttributeOverrides(
+			{
+				@AttributeOverride(name="addressLine1", column=@Column(name="USER_ADDRESS_LINE_1")),
+				@AttributeOverride(name="addressLine2", column=@Column(name="USER_ADDRESS_LINE_2"))
+			})
+	private List<Address> address = new ArrayList<Address>();
+
+	
+	
+	
+	public List<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(List<Address> address) {
+		this.address = address;
+	}
+
+	
+	/*--------------------- #Formula annotations -----------------------------*/
+	
+	/*
+	
+	@ElementCollection
+	@CollectionTable(name="USER_DEPARTMENTS", joinColumns=@JoinColumn(name="USER_ID"))
+	@AttributeOverrides(
+			{
+				@AttributeOverride(name="departmentBranceh1", column=@Column(name="DEPT_BRANCH_1")),
+				@AttributeOverride(name="departmentBranceh2", column=@Column(name="DEPT_BRANCH_2"))
+			})
+	private List<Departments> address = new ArrayList<Departments>();
+	*/
+	
+
 	public String getMonthalySalary() {
 		return monthalySalary;
 	}

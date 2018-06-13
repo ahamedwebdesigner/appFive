@@ -3,6 +3,8 @@ package com.appFive.bank.entities;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -13,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.MapKeyColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -53,7 +56,34 @@ public class Bank {
 	
 	@Column(name = "NAME")
 	private Collection<String> contacts = new ArrayList<String>();
+	
+	/********************************* CODEBLOCK 2 *********************************/
+	
+	@ElementCollection
+	@CollectionTable(name="BANK_VEHICALS", joinColumns=@JoinColumn(name="BANK_ID"))
+	@MapKeyColumn(name="VEHICAL_NO")
+	@Column(name="VEHICAL_TYPE")
+	private Map<String, String> Vehicals = new HashMap<String, String>();
+	
+	public Map<String, String> getVehicals() {
+		return Vehicals;
+	}
 
+	public void setVehicals(Map<String, String> vehicals) {
+		Vehicals = vehicals;
+	}
+
+	/********************************* # CODEBLOCK 2 *********************************/
+
+	public ContactDetails getAddress() {
+		return address;
+	}
+
+	public void setAddress(ContactDetails address) {
+		this.address = address;
+	}
+
+	
 	public Long getBankId() {
 		return bankId;
 	}

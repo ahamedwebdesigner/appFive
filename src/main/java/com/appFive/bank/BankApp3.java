@@ -1,18 +1,24 @@
 package com.appFive.bank;
 
 import java.util.Date;
+import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.appFive.Hr.util.HibernateUtil;
 import com.appFive.bank.entities.Bank;
+import com.appFive.bank.entities.User;
 
 public class BankApp3 {
 
 	public static void main(String[] args) {
 	
+		
+		//note: BEFORE running this example please commet code block 2 in User.java class
+		
 			SessionFactory sessionFactory = HibernateUtil.getSessionFactory("com/appFive/bank/conf/Bank_Hibernate.cfg.xml");
 			Session session = sessionFactory.openSession();  
 		
@@ -38,6 +44,18 @@ public class BankApp3 {
 			session.save(bank);
 			
 		
+			
+			   Criteria  criteria = session.createCriteria(User.class);
+		        List<User> UserList = criteria.list();
+		        for(User user : UserList){
+		            
+		           System.out.println("User Uppercase Name : " + user.getUpperfirstName());
+		            System.out.println("User Full Name : " + user.getFullName());
+		        	System.out.println("User getAge : " + user.getAge());
+		        	System.out.println("User getMonthalySalary : " + user.getMonthalySalary());
+		        }
+
+				
 				
 		     tx.commit();
 		 }

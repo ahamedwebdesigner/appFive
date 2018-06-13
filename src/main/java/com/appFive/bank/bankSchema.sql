@@ -1,7 +1,9 @@
 DROP TABLE IF EXISTS `user`;
 
-show tables;
 
+#-------------------------------------------
+show tables;
+#-------------------------------------------
 
 CREATE TABLE `user` (
   `USER_ID` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -14,18 +16,33 @@ CREATE TABLE `user` (
   `CREATED_BY` varchar(45) NOT NULL,
   `CREATED_DATE` datetime NOT NULL,
    `SALARY` float DEFAULT NULL,
-  `USER_ADDRESS_LINE_1` varchar(100) DEFAULT NULL,
-  `USER_ADDRESS_LINE_2` varchar(100) DEFAULT NULL,
-  `CITY` varchar(100) DEFAULT NULL,
-  `STATE` varchar(2) DEFAULT NULL,
-  `ZIP_CODE` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`USER_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 select * from user;
 truncate table user;
 drop table user;
+
+
+
+
+CREATE TABLE `user_address` (
+  `USER_ID` bigint(20) NOT NULL,
+  `USER_ADDRESS_LINE_1` varchar(100) NOT NULL,
+  `USER_ADDRESS_LINE_2` varchar(100) NOT NULL,
+  `CITY` varchar(100) NOT NULL,
+  `STATE` varchar(2) NOT NULL,
+  `ZIP_CODE` varchar(5) NOT NULL,
+  `ADDRESS_TYPE` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`USER_ID`,`USER_ADDRESS_LINE_1`,`USER_ADDRESS_LINE_2`,`CITY`,`STATE`,`ZIP_CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+select * from user_address;
+truncate table user_address;
+drop table user_address;
+
+
+
 
 SHOW CREATE TABLE user_keys;
 
@@ -95,4 +112,16 @@ CREATE TABLE `BANK_CONTACT_DETAILES` (
 
 select * from BANK_CONTACT_DETAILES;
 drop table BANK_CONTACT_DETAILES;
+
+
+
+
+#-------------------------------------------
+
+SHOW CREATE TABLE BANK_VEHICALS;
+select * from BANK_VEHICALS;
+
+drop table BANK_VEHICALS;
+
+#-------------------------------------------
 
